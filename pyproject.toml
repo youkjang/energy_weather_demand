@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "energy-weather-demand-analysis"
+version = "0.1.0"
+description = "Weather-energy demand analysis using EIA electricity demand data and NOAA weather or forecast data."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Youkyoung Jang" }
+]
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "requests>=2.31",
+    "matplotlib>=3.7",
+    "python-dotenv>=1.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "black>=24.0",
+    "ipykernel>=6.0",
+    "jupyter>=1.0"
+]
+weather = [
+    "xarray>=2024.1.0",
+    "netCDF4>=1.6",
+    "cfgrib>=0.9.10",
+    "s3fs>=2024.1.0",
+    "fsspec>=2024.1.0",
+    "eccodes>=2.37.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
