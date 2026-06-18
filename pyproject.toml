@@ -37,7 +37,7 @@ weather = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = {"" = "energy_weather"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
